@@ -1,0 +1,17 @@
+<form>
+    <label>
+        <span>Filter:</span>
+        {{input type='text' placeholder='Filter establishments' valueBinding='filterString' }}
+    </label>
+</form>
+<ul class="bars list">
+    {{#each filteredBars as |bar barindex|}}
+    <li id="{{{bar.id}}}">
+        {{#link-to 'bar' bar.id }}
+        <img src="{{{bar.imageUrl}}}" alt="{{{bar.name}}}" />
+        <h3>{{{bar.name}}}</h3>
+        <span>Location: {{{bar.lat}}}, {{{bar.long}}}</span>
+        {{/link-to}}
+    </li>
+    {{/each}}
+</ul>

@@ -1,0 +1,14 @@
+<ul class="orders list">
+    {{#each model.rounds as |round roundIndex|}}
+    <li id="{{{round.id}}}" >
+        {{#link-to 'order' round.id}}
+        <span>Bar: {{round.bar.name}}</span>
+        <span>Ordered: {{dateFormat round.orderedAt 'DD/MM/YYYY HH:mm'}}</span>
+        {{/link-to}}
+    </li>
+    {{else}}
+    <li class="empty">
+        There are no orders
+    </li>
+    {{/each}}
+</ul>

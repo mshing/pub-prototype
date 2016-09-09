@@ -1,0 +1,66 @@
+﻿//-----------------------------------
+// variables
+//-----------------------------------
+
+$minWidth:360px;
+$maxWidth:640px;
+$baseFontSize:16;
+
+$lightGray: #F7F7F7;
+$mediumGray: #F1F1F1;
+$darkGray: #E9E8E8;
+$darkerGray:#646569;
+
+$primaryColor:#2F1A45;
+$secondaryColor:#e42484;
+
+$lightishGray:#C1C1C3;
+
+$errorPink:#fef4f4;
+
+$aqua:#00A59E;
+$blue:#008CCC;
+$purple:#982682;
+$green:#AFC762;
+$darkGreen:#00a79e;
+$orange:#EF9222;
+$red:#F0292B;
+$pink:#e61a84;
+
+//-----------------------------------
+// mixins
+//-----------------------------------
+
+@mixin user-select($value) {    
+    -webkit-touch-callout: $value;
+    -webkit-user-select: $value;
+    -khtml-user-select: $value;
+    -moz-user-select: $value;
+    -ms-user-select: $value;
+    user-select: $value;
+}
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin animate($animate,$iteration) {
+    animation: $animate;
+    animation-iteration-count: $iteration;
+    -webkit-animation: $animate;
+    -webkit-animation-iteration-count: $iteration;
+    -moz-animation: $animate;
+    -moz-animation-iteration-count: $iteration;
+    -o-animation: $animate;
+    -o-animation-iteration-count: $iteration;
+}
+
+@mixin position($position, $top, $right, $bottom, $left) {
+    position:$position !important;
+    top:$top;
+    right:$right;
+    bottom:$bottom;
+    left:$left;
+}

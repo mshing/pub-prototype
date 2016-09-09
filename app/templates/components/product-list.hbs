@@ -1,0 +1,26 @@
+{{#unless summary}}
+<div class="pageAction">
+    <a {{action 'createOrder'}} class="button default createOrder">Create Order ({{totalCount}})</a>
+</div>
+{{/unless}}
+
+<ul class="products list">
+    {{#each products as |product productindex|}}
+    <li id="{{{product.product.id}}}" class="{{if (get (get orderedProducts product.product.id) 'count') 'ordered'}}">
+            <img src="{{{product.product.imageUrl}}}" alt="{{{product.product.name}}}" />
+            <h3 >{{{product.product.name}}}</h3>
+            <span>Price: {{#if summary}}{{priceFormat product.actualPrice}}{{else}}{{priceFormat product.currentPrice}}{{/if}}</span>
+        {{#if summary}}  
+            <span>Ordered: {{product.count}}</span>
+        {{else}}               
+            <span>{{#if (get (get orderedProducts product.product.id) 'count')}}Ordered: {{get (get orderedProducts product.product.id) 'count'}}{{/if}}</span>
+            <a class="button icon-plus" {{action 'addProduct' product.product product.currentPrice}}></a>
+            <a class="button icon-minus" {{action 'removeProduct' product.product.id}}></a>
+        {{/if}}
+    </li>
+    {{/each}}
+</ul>
+
+{{#if summary}}
+<span class="orderDetails">Order Total: {{priceFormat totalPrice}}</span>
+{{/if}}

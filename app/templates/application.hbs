@@ -1,0 +1,13 @@
+<header>
+    {{#link-to 'index' class="icon-home"}}{{/link-to}}
+    {{#link-to 'view-orders' class="icon-menu"}}{{/link-to}}
+    <h1>Pub Orders</h1>
+</header>
+<main>
+    {{liquid-outlet}}
+
+    {{loading-overlay id="main"}}
+</main>
+<footer>
+    <span>&copy; Copyright footer 2016</span>
+</footer>

@@ -1,0 +1,179 @@
+﻿//-----------------------------------
+// generic classes
+//-----------------------------------
+
+.button {
+    display: block;
+    font-size:rem-calc(15px);
+    font-weight:600;
+    border: none;
+    color: #FFF !important;
+    padding: 0 15px 2px 15px;
+    line-height: 30px;
+    background: $lightGray;
+    width: auto;
+    text-align: center;
+    margin: 15px 0;
+    cursor:pointer;
+    position:relative;
+    transition:box-shadow 0.15s ease-in-out;
+    @include border-radius(20px);
+    @include user-select(none);
+    /*&:after {
+        content:'\e937';
+        font-family:'icomoon';
+        font-weight: normal;
+        font-size:rem-calc(10px);
+        line-height: 1;
+        @include position(absolute, 12px, 8px, auto, auto);
+    }*/
+
+    &:hover {
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), inset 50px 50px 50px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), inset 0 1px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    &.default {
+        border:solid 1px $darkGray;
+        color:$darkerGray !important;
+    }
+    
+    &.white {
+        background:#FFF;
+        color:$secondaryColor !important;
+    }
+
+    &.primary {
+        background:$primaryColor;
+        &:hover {
+            box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), inset 50px 50px 50px 50px rgba(100, 100, 100, 0.5);
+        }
+        &:active {
+            box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), inset 0 1px 4px rgba(200, 200, 200, 0.8);
+        }
+    }
+
+    &.secondary {
+        background:$secondaryColor;
+    }
+
+    &.gray {
+        background:$darkerGray;
+    }
+
+    &.purple {
+        background:$purple;
+    }
+
+    &:focus {
+        outline:none;
+    }
+} 
+
+.largeButton {
+    @extend .button;
+    line-height:38px;
+    font-size:rem-calc(18px);
+    padding: 0 35px 2px 20px;
+
+    &:after {
+        font-size:rem-calc(16px);
+        right:12px;
+    }
+}
+.inlineButton {
+    width: auto;
+    height: auto;
+    line-height: 1rem;
+    display: inline-block;
+    padding: 5px 10px 7px 10px;
+    font-size: 1rem;
+    @include border-radius(15px);
+     &:after {
+        top:9px;
+        right:6px;
+    }
+}
+
+.list {
+    li {
+        clear:both;
+        overflow:auto;
+        border-bottom:solid 1px $mediumGray;
+        
+        &:first-child {
+            border-top:solid 1px $mediumGray;
+        }
+        
+        a {display:block;padding:15px;}
+        img {float:left;width:80px;height:80px;margin-right:25px;}
+        h3 {font-size:2rem;margin:0 0 10px;}
+        span {font-size:1.2rem;display:block;}
+    }
+}
+
+.list.products {
+    li {
+        padding:15px;
+        position:relative;
+        transition:background .3s ease-in;
+
+        h3 {
+            font-size:1.5rem;
+            margin-bottom:5px;
+            
+        }
+
+        span {font-size:1rem;}
+
+        a {
+            position:absolute;
+            width:30px;
+            height:30px;
+            padding:0;
+            top:5px;
+            right:15px;
+            font-size:0.7rem;
+            line-height:30px;
+            @include border-radius(5px);
+            background:$darkerGray;
+
+            &.icon-minus {
+                top:50px;
+            }
+        }
+
+        
+        &.ordered {
+            background:$mediumGray;
+        }
+    }
+}
+
+.orders.list {
+    li.empty {padding:15px;}
+}
+
+.pageAction {
+    @extend .container;
+
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 2;
+    height: 45px;
+    background: rgba(0,0,0,0.1);
+    
+    .createOrder {
+        margin: 5px auto;
+        width:175px;
+    }
+}
+
+.orderDetails {
+    display:block;
+    margin:15px;
+}
